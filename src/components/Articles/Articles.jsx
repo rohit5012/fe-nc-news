@@ -16,6 +16,8 @@ const Articles = () => {
     });
   }, []);
 
+  if (isLoading) return "Loading...";
+
   return (
     <>
       <h2>All Articles</h2>
