@@ -1,0 +1,14 @@
+h1 {
+  color: aquamarine;
+}
+
+nav {
+  display: inline-flex;
+  border: 2px solid black;
+  margin-top: 20px;
+  background-color: blanchedalmond;
+}
+
+.header_link {
+  padding: 0.9rem;
+}
