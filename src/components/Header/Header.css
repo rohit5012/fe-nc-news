@@ -4,11 +4,13 @@ h1 {
 
 nav {
   display: inline-flex;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   margin-top: 20px;
   background-color: blanchedalmond;
 }
 
 .header_link {
+  text-decoration: underline;
+  color: black;
   padding: 0.9rem;
 }
