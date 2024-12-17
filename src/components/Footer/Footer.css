@@ -1,14 +1,10 @@
-h1 {
-  color: aquamarine;
-}
-
-nav {
+.footer {
   display: inline-flex;
   margin-top: 20px;
   background-color: blanchedalmond;
 }
 
-.header_link {
+.footer p {
   text-decoration: underline;
   color: black;
   padding: 0.9rem;
