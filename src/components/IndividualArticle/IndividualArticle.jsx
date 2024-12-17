@@ -2,10 +2,11 @@ import "./IndividualArticle.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchSingleArticle } from "../../api";
+import Comments from "../Comments/Comments";
 
 const IndividualArticle = () => {
-  const [article, setArticle] = useState("");
-  const [error, setError] = useState("");
+  const [article, setArticle] = useState({});
+  const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { article_id } = useParams();
 
@@ -13,8 +14,6 @@ const IndividualArticle = () => {
     setIsLoading(true);
     fetchSingleArticle(article_id)
       .then(({ article }) => {
-        console.log(article);
-
         setArticle(article);
         setIsLoading(false);
       })
@@ -53,6 +52,7 @@ const IndividualArticle = () => {
           </i>
         </span>
       </p>
+      <Comments article_id={article_id} />
     </div>
   );
 };
