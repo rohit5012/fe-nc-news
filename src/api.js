@@ -20,7 +20,14 @@ export const fetchArticleComments = (article_id) => {
   return api
     .get(`/articles/${article_id}/comments`)
     .then(({ data: { comments } }) => {
-      console.log(comments);
       return comments;
+    });
+};
+
+export const updateArticleVotes = (article_id, votes) => {
+  return api
+    .patch(`/articles/${article_id}`, { inc_votes: votes })
+    .then((results) => {
+      return results;
     });
 };
