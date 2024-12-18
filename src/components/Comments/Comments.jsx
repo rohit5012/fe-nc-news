@@ -16,7 +16,6 @@ const Comments = ({ article_id }) => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setError(true);
       });
   }, []);
