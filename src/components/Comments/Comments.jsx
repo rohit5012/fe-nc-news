@@ -1,12 +1,34 @@
-import { fetchArticleComments } from "../../api";
-import { useState, useEffect } from "react";
+import { fetchArticleComments, postNewComment } from "../../api";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../contexts/User";
 import CommentCard from "../CommentCard/CommentCard";
 import "./Comments.css";
 
 const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
+  const [commentInput, setCommentInput] = useState("");
+  const [commentPosted, setCommentPosted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const {
+    user: { username },
+  } = useContext(UserContext);
+
+  const handleCommentFormSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(false);
+    postNewComment(article_id, username, commentInput)
+      .then(() => {
+        setCommentInput("");
+        setCommentPosted(true);
+        setIsLoading(false);
+        console.log(comments);
+      })
+      .catch((error) => {
+        setError(true);
+      });
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -16,12 +38,29 @@ const Comments = ({ article_id }) => {
         setIsLoading(false);
       })
       .catch((error) => {
+        setIsLoading(false);
         setError(true);
       });
-  }, []);
+  }, [commentPosted]);
+
+  if (isLoading) return "Loading...";
 
   return (
     <div>
+      <br></br>
+      <form onSubmit={handleCommentFormSubmit}>
+        <label htmlFor="newComment">
+          <textarea
+            name="newComment"
+            type="text"
+            value={commentInput}
+            placeholder="post a new comment..."
+            onChange={(e) => setCommentInput(e.target.value)}
+            required
+          ></textarea>
+        </label>
+        <button>Submit</button>
+      </form>
       <h2>All Comments</h2>
       <ul>
         {comments.map((comment, comment_id) => {

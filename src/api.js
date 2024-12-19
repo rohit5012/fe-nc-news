@@ -31,3 +31,10 @@ export const updateArticleVotes = (article_id, votes) => {
       return results;
     });
 };
+
+export const postNewComment = (article_id, username, comment) => {
+  return api.post(`/articles/${article_id}/comments`, {
+    username: username,
+    body: comment,
+  });
+};

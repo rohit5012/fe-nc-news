@@ -1,10 +1,10 @@
 import "./IndividualArticle.css";
+import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchSingleArticle } from "../../api";
 import Comments from "../Comments/Comments";
 import VoteArticle from "../VoteArticle/VoteArticle";
-import { Container } from "react-bootstrap";
 
 const IndividualArticle = () => {
   const [article, setArticle] = useState({});
