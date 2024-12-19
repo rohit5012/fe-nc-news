@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Articles from "./components/Articles/Articles";
 import IndividualArticle from "./components/IndividualArticle/IndividualArticle";
 import { Route, Routes } from "react-router-dom";
+import Topics from "./components/Topics/Topics";
 import LoginPage from "./components/LoginPage/LoginPage";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Articles />} exact />
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:article_id" element={<IndividualArticle />} />
+        <Route path="/topics" element={<Topics />} />
         <Route path="/user-login" element={<LoginPage />}></Route>
       </Routes>
       <br></br>
