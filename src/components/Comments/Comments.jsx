@@ -8,6 +8,7 @@ const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState("");
   const [commentPosted, setCommentPosted] = useState(false);
+  const [commentDeleted, setCommentDeleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const {
@@ -41,7 +42,7 @@ const Comments = ({ article_id }) => {
         setIsLoading(false);
         setError(true);
       });
-  }, [commentPosted]);
+  }, [commentPosted, commentDeleted]);
 
   if (isLoading) return "Loading...";
 
@@ -67,7 +68,10 @@ const Comments = ({ article_id }) => {
           return (
             <div className="comment_list" key={comment_id}>
               <li>
-                <CommentCard comment={comment} />
+                <CommentCard
+                  comment={comment}
+                  setCommentDeleted={setCommentDeleted}
+                />
               </li>
             </div>
           );
