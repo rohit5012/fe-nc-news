@@ -6,16 +6,25 @@ import "./Articles.css";
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchAllArticles().then((articles) => {
-      setArticles(articles);
-      setIsLoading(false);
-    });
+    setIsError(false);
+    fetchAllArticles()
+      .then((articles) => {
+        setArticles(articles);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsError(true);
+      });
   }, []);
 
   if (isLoading) return "Loading...";
+  if (isError) {
+    return <p>Error</p>;
+  }
 
   return (
     <>
