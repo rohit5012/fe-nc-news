@@ -52,6 +52,12 @@ const IndividualArticle = () => {
             <strong> {article.topic}</strong>
           </i>
         </span>
+        <span>
+          , Votes:
+          <i>
+            <strong> {article.votes}</strong>
+          </i>
+        </span>
       </p>
       <VoteArticle votes={article.votes} article_id={article.article_id} />
       <Comments article_id={article_id} />

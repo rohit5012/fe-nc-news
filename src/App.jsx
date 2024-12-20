@@ -13,7 +13,7 @@ function App() {
     <Container>
       <Header />
       <Routes>
-        <Route path="/" element={<Articles />} exact />
+        {/* <Route path="/" element={<Articles />} exact /> */}
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:article_id" element={<IndividualArticle />} />
         <Route path="/topics" element={<Topics />} />
