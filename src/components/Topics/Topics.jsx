@@ -12,11 +12,12 @@ const Topics = () => {
     setIsLoading(true);
     setIsError(false);
     fetchTopicList()
-      .then((data) => {
-        setTopics(data);
+      .then((topics) => {
+        setTopics(topics);
         setIsLoading(false);
       })
       .catch((error) => {
+        setIsLoading(false);
         setIsError(true);
       });
   }, []);

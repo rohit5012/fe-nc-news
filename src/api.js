@@ -4,10 +4,18 @@ const api = axios.create({
   baseURL: "https://expressjs-app.onrender.com/api",
 });
 
-export const fetchAllArticles = () => {
-  return api.get("/articles").then(({ data }) => {
-    return data.articles;
-  });
+export const fetchAllArticles = (topicName, sortBy, orderBy) => {
+  return api
+    .get("/articles", {
+      params: { topic: topicName, sort_by: sortBy, order_by: orderBy },
+    })
+    .then(({ data: { articles } }) => {
+      return articles;
+    })
+    .catch((error) => {
+      console.error("Error fetching articles:", error);
+      throw error;
+    });
 };
 
 export const fetchSingleArticle = (article_id) => {
