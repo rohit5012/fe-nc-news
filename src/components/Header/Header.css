@@ -1,15 +1,11 @@
-h1 {
-  color: aquamarine;
-}
-
-nav {
-  display: inline-flex;
-  margin-top: 20px;
-  background-color: blanchedalmond;
-}
-
 .header_link {
-  text-decoration: underline;
-  color: black;
+  text-decoration: none;
+  color: #e6ccb2;
   padding: 0.9rem;
+  font-weight: 600;
+}
+
+.header_link:hover {
+  text-decoration: underline;
+  font-weight: 600;
 }

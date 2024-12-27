@@ -59,7 +59,7 @@ const Articles = () => {
   }
 
   return (
-    <>
+    <section>
       <h2>All Articles</h2>
 
       <FormControl fullWidth sx={{ marginBottom: 2 }}>
@@ -88,15 +88,13 @@ const Articles = () => {
       <ul>
         {articles.map((article, article_id) => {
           return (
-            <div className="article_list" key={article_id}>
-              <li>
-                <ArticleCards article={article} />
-              </li>
-            </div>
+            <li key={article_id} className="article_list">
+              <ArticleCards article={article} />
+            </li>
           );
         })}
       </ul>
-    </>
+    </section>
   );
 };
 

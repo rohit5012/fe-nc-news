@@ -1,19 +1,21 @@
 import "./App.css";
-import { Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Articles from "./components/Articles/Articles";
 import IndividualArticle from "./components/IndividualArticle/IndividualArticle";
-import { Route, Routes } from "react-router-dom";
 import Topics from "./components/Topics/Topics";
 import LoginPage from "./components/LoginPage/LoginPage";
+import Home from "./components/Home/Home";
 
 function App() {
   return (
-    <Container>
+    <>
       <Header />
+
       <Routes>
-        {/* <Route path="/" element={<Articles />} exact /> */}
+        <Route path="/" element={<Home />} exact />
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:article_id" element={<IndividualArticle />} />
         <Route path="/topics" element={<Topics />} />
@@ -22,7 +24,7 @@ function App() {
       <br></br>
 
       <Footer />
-    </Container>
+    </>
   );
 }
 
