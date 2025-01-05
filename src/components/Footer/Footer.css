@@ -1,11 +1,19 @@
 .footer {
   display: inline-flex;
-  margin-top: 20px;
-  background-color: blanchedalmond;
+  justify-content: space-around;
+  width: 100vw;
+  height: 8rem;
+  align-items: center;
+  background-color: #2b2d42;
 }
 
 .footer p {
-  text-decoration: underline;
-  color: black;
+  text-decoration: none;
+  color: #e6ccb2;
   padding: 0.9rem;
+}
+
+.footer p:hover {
+  text-decoration: underline;
+  font-weight: bold;
 }

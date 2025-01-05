@@ -20,7 +20,7 @@ function Header() {
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#2b2d42") : setnavColor("transparent");
-    window.scrollY > 10 ? setnavSize("5rem") : setnavSize("10rem");
+    window.scrollY > 10 ? setnavSize("4rem") : setnavSize("10rem");
   };
 
   useEffect(() => {
@@ -105,8 +105,13 @@ function Header() {
                   Articles
                 </Link>
                 <br></br>
+                <Link to="/articles" className="header_link">
+                  Users
+                </Link>
+                <br></br>
+
                 <Link to="/topics" className="header_link">
-                  Topics
+                  Api
                 </Link>
               </Typography>
             </MenuItem>
@@ -138,7 +143,10 @@ function Header() {
             Articles
           </Link>
           <Link to="/topics" className="header_link">
-            Topics
+            Users
+          </Link>
+          <Link to="/topics" className="header_link">
+            Api
           </Link>
         </Box>
 
@@ -149,8 +157,8 @@ function Header() {
                 <Typography
                   sx={{
                     textAlign: "center",
-                    color: "#bc4749",
-                    backgroundColor: "#eae0d5",
+                    color: "#352208",
+                    backgroundColor: "#8a7968",
                     width: "80px",
                     fontWeight: "bold",
                   }}

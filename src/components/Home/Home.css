@@ -2,3 +2,30 @@
   width: 100vw;
   height: 90vh;
 }
+
+.home_headline {
+  text-align: left;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.home_unordered_list {
+  text-align: left;
+}
+.home_recent_articles_list {
+  background-color: #edede9;
+  padding: 2px 0px 1px 20px;
+  margin: 0px 50px 8px 10px;
+  list-style-type: none;
+  border-radius: 10px;
+  word-spacing: 0px;
+  border: 1px solid gray;
+}
+
+.home_recent_articles_list:nth-child(even) {
+  background-color: #fff;
+}
+
+.home_article_title {
+  padding-top: 10px;
+}

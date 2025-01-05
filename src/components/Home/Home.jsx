@@ -3,8 +3,21 @@ import Pic1 from "../../assets/images/pic1.jpeg";
 import Pic2 from "../../assets/images/pic2.jpeg";
 import Pic3 from "../../assets/images/pic3.jpeg";
 import "../Home/Home.css";
+import { fetchAllArticles } from "../../api";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    fetchAllArticles().then((articles) => {
+      setArticles(articles);
+    });
+  }, []);
+
+  const newArticles = articles.slice(0, 5);
+
   return (
     <>
       <Carousel>
@@ -61,8 +74,33 @@ function Home() {
         }}
       ></div>
       <br></br>
-      <h3>Recent Articles</h3>
-      <section></section>
+      <h4 className="home_headline">Recent Articles :</h4>
+      <section>
+        <ul className="home_unordered_list">
+          {newArticles.map((article) => {
+            return (
+              <li
+                key={article.article_id}
+                className="home_recent_articles_list"
+              >
+                <h5 className="home_article_title">{article.title}</h5>
+                <p>
+                  Posted by <Link>{article.author}</Link> @
+                  {article.created_at.split("T")[0]} ,
+                  <span>{article.created_at.split("T")[1].split(".")[0]}</span>{" "}
+                  in <span>{article.topic}.</span>{" "}
+                  <span>
+                    <Link to={`/articles/${article.article_id}`}>
+                      {" "}
+                      ReadMe...
+                    </Link>
+                  </span>
+                </p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     </>
   );
 }

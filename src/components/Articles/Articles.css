@@ -1,5 +1,30 @@
+.all_articles_section {
+  margin-top: 5rem;
+  padding: 0.2em;
+}
+
+.all_articles_div {
+  text-align: right;
+  margin: 0px 20px;
+}
+
+.all_articles_section_span {
+  padding-right: 12px;
+}
+
+.all_articles_section_button {
+  font-size: small;
+}
+
 .article_list {
   list-style-type: none;
-  display: inline-flex;
-  justify-content: space-between;
+  /* display: block; */
+  /* justify-content: space-between; */
+}
+
+@media only screen and (max-width: 600px) {
+  .all_articles_div {
+    text-align: center;
+    font-size: smaller;
+  }
 }

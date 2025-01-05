@@ -21,6 +21,8 @@ const Articles = () => {
     fetchAllArticles(topicName, sortBy, orderBy)
       .then((articles) => {
         setArticles(articles);
+        console.log(articles);
+
         setIsLoading(false);
       })
       .catch((error) => {
@@ -59,32 +61,38 @@ const Articles = () => {
   }
 
   return (
-    <section>
-      <h2>All Articles</h2>
-
-      <FormControl fullWidth sx={{ marginBottom: 2 }}>
-        <select onChange={handleTopic} value={topicName}>
-          <option value="">All Topics</option>
-          <option value="football">Football</option>
-          <option value="coding">Coding</option>
-          <option value="cooking">Cooking</option>
-        </select>
-      </FormControl>
-
-      <FormControl fullWidth sx={{ marginBottom: 2 }}>
-        <select onChange={handleSort} value={sortBy}>
-          <option value="created_at">Date</option>
-          <option value="author">Author</option>
-          <option value="votes">Votes</option>
-          <option value="comment_count">Comment Count</option>
-        </select>
-      </FormControl>
-
-      <button onClick={handleOrder}>
-        {orderBy === "ASC"
-          ? "Sort By Descending Order"
-          : "Sort By Ascending Order"}
-      </button>
+    <section className=" all_articles_section">
+      <div className="all_articles_div">
+        <span className="all_articles_section_span">
+          {" "}
+          Display by: &nbsp;
+          <FormControl sx={{ marginBottom: 2 }}>
+            <select onChange={handleTopic} value={topicName}>
+              <option value="">All Topics</option>
+              <option value="football">Football</option>
+              <option value="coding">Coding</option>
+              <option value="cooking">Cooking</option>
+            </select>
+          </FormControl>
+        </span>
+        <span className="all_articles_section_span">
+          {" "}
+          Sort by: &nbsp;
+          <FormControl sx={{ marginBottom: 2 }}>
+            <select onChange={handleSort} value={sortBy}>
+              <option value="created_at">Date</option>
+              <option value="author">Author</option>
+              <option value="votes">Votes</option>
+              <option value="comment_count">Comment Count</option>
+            </select>
+          </FormControl>
+        </span>
+        <button onClick={handleOrder} className="all_articles_section_button">
+          {orderBy === "ASC"
+            ? "Sort By Descending Order"
+            : "Sort By Ascending Order"}
+        </button>
+      </div>
       <ul>
         {articles.map((article, article_id) => {
           return (
